@@ -1,0 +1,36 @@
+﻿@model CarListViewModel
+@{
+    ViewData["Title"] = "Home - This is where the cars live, get you one!";
+}
+<div class="btn-group-justified">
+    <a class="btn btn-info" asp-controller="Car" asp-action="Index" asp-route-id="#">Home</a>
+    <a class="btn btn-info" asp-controller="Car" asp-action="Create" asp-route-id="Create">Voeg een nieuwe auto toe</a>
+    <a class="btn btn-info" asp-controller="Car" asp-action="Owners" asp-route-id="Owners">Filter op eigenaars</a>
+    <a class="btn btn-info" asp-controller="Car" asp-action="Models" asp-route-id="Models">Filter op Modellen</a>
+</div>
+<br />
+<div>
+
+        @foreach (var car in Model.Cars)
+        {
+            <ul>
+                <li>Soort wagen: @car.Cartype</li>
+                <li>Kleur: @car.Color</li>
+                <li>Aangekocht op: @car.Buydate</li>
+                <li>Nummerplaat: @car.Plate</li>
+                <li>Huidige Eigenaar: @car.Owner</li>
+            </ul>
+                <a class="btn btn-warning" asp-controller="Car" asp-action="Edit" asp-route-id="@car.Id">Bewerk auto</a>
+                <a class="btn btn-danger" asp-controller="Car" asp-action="Delete" asp-route-id="@car.Id">Verwijder auto</a>
+                <hr>
+            
+
+
+
+
+        }
+
+</div>
+
+
+

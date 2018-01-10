@@ -1,0 +1,11 @@
+﻿@model CarEditViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Are you sure you want to delete this car?</h2>
+
+<a class="btn btn-danger" asp-controller="Car" asp-action="Delete" asp-route-id="@Model.Id"
+   onclick="$.post(this.href).success(window.location.href = '/car');return false; ">
+    Yes
+</a>
